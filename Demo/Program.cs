@@ -30,23 +30,23 @@ var webApplicationBuilder = WebApplication.CreateBuilder();
            ///     await context.Response.WriteAsync("Hello world!");
            /// });
 
-             App.MapGet("/XX{id:int}", async context =>
-             {
-                 await context.Response.WriteAsync($"Id = {context.Request.RouteValues["id"]}");
-             });
+          ///   App.MapGet("/XX{id:int}", async context =>
+          ///   {
+          ///       await context.Response.WriteAsync($"Id = {context.Request.RouteValues["id"]}");
+          ///   });
+          ///
+          ///  App.MapPost("/Hamada", async context =>
+          ///  {
+          ///      await context.Response.WriteAsync("Hello Hamada!");
+          ///  });
+          ///
 
-            App.MapPost("/Hamada", async context =>
-            {
-                await context.Response.WriteAsync("Hello Hamada!");
-            });
-
-
-App.MapControllerRoute(
-    name: "default",
-    pattern: "{Controller=Movies}/{action=Index}/{id:int?}/{name:alpha?}"
-   // ,defaults: new { Controller = "Movies" ,action ="Index" },
-  // constraints: new { id = new IntRouteConstraint() }
-    );
+           App.MapControllerRoute(
+               name: "default",
+               pattern: "{Controller=Home}/{action=Index}/{id:int?}/{name:alpha?}"
+              // ,defaults: new { Controller = "Movies" ,action ="Index" },
+             // constraints: new { id = new IntRouteConstraint() }
+               );
 #endregion
 
 App.Run();
