@@ -24,6 +24,7 @@ var webApplicationBuilder = WebApplication.CreateBuilder();
                 App.UseStatusCodePagesWithReExecute("/Home/Error");
             }
             App.UseRouting();
+     App.UseStaticFiles();
 
            /// App.MapGet("/", async context =>
            /// {
