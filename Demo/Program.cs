@@ -43,7 +43,7 @@ var webApplicationBuilder = WebApplication.CreateBuilder();
 
 App.MapControllerRoute(
     name: "default",
-    pattern: "{Controller=Movies}/{action=Index}/{id:int?}"
+    pattern: "{Controller=Movies}/{action=Index}/{id:int?}/{name:alpha?}"
    // ,defaults: new { Controller = "Movies" ,action ="Index" },
   // constraints: new { id = new IntRouteConstraint() }
     );

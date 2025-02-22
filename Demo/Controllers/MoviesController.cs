@@ -5,7 +5,6 @@ namespace Demo.Controllers
 {
     public class MoviesController:Controller
     {
-        private readonly IConfiguration _configuration;
 
         //Action ==>Public nonstatic Object Member Method inside the Controller 
 
@@ -34,12 +33,19 @@ namespace Demo.Controllers
         ///  
         #endregion
 
+        /// private readonly IConfiguration _configuration;
+        /// public MoviesController(IConfiguration configuration)
+        /// {
+        ///     _configuration = configuration;
+        /// }
+        /// 
+        public IConfiguration Configuration { get; }
         public MoviesController(IConfiguration configuration)
         {
-            _configuration = configuration;
+            Configuration = configuration;
         }
         
-        public IActionResult GetMovie(int id)
+        public IActionResult GetMovie([FromHeader]int id,string name )
 
         {
             if (id == 0) return BadRequest();             // return new BadRequestResult();
@@ -57,6 +63,7 @@ namespace Demo.Controllers
             }
 
         }
+       
 
         public IActionResult Kermina()
         {
@@ -78,5 +85,20 @@ namespace Demo.Controllers
 
             return Redirect("https://wuzzuf.net/jobs/egypt");
         }
+
+        [HttpGet]
+        public IActionResult CreateMovie([FromServices]IConfiguration configuration)
+        {
+            return View();
+
+        }
+        [HttpPost]
+
+        public IActionResult CreateMovie(Movie movie)
+        {
+            return Ok();
+        }
+
+
     }
 }
