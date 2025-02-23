@@ -1,0 +1,73 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+
+</head>
+<body>
+          <!--   @*Start Header *@
+       
+        <header class="mt-5">
+            <center>
+                <nav>
+                    <a class="btn btn-danger" href="/Home/Index">Home</a>
+                    <a class="btn btn-warning" href="/Home/AboutUs">AboutUs</a>
+                    <a class="btn btn-success" href="/Home/Privacy">Privacy</a>
+                    <a class="btn btn-light" href="/Home/ConcatUs">ContactUS</a>
+                    <a class="btn btn-primary" href="/Account/SignIn">SignIn</a>
+                    <a class="btn btn-danger" href="/Account/SignUp">SignUp</a>
+                </nav>
+            </center>
+        </header>-->
+    @*Start Header *@
+
+    <header class="mt-5">
+        <center>
+            <nav>
+          <!--  @*   1-HtmlTag *@
+              <a href="/Home/Index" class="btn btn-primary">HomeX</a>
+           @*    2-Html Helper  *@
+              @Html.ActionLink("HomeX","Index","Home",null,new {@class="btn btn-primary"});
+
+             @*  @Html.BeginForm();
+              @Html.CheckBox();
+              @Html.TextBox(); *@
+
+            @*   3-TagHelper *@
+                      <a asp-controller="Home" asp-action="Index" class="btn btn-danger">HomeX</a> -->
+
+                <a asp-controller="Home" asp-action="Index" class="btn btn-danger">Home</a>
+                <a asp-controller="Home" asp-action="AboutUs"class="btn btn-warning" >AboutUs</a>
+                <a asp-controller="Home" asp-action="Privacy" class="btn btn-success">Privacy</a>
+                <a asp-controller="Home" asp-action="ConcatUs" class="btn btn-light">ContactUS</a>
+                <a asp-controller="Account" asp-action="SignIn" class="btn btn-primary">SignIn</a>
+                <a asp-controller="Account" asp-action="SignUp" class="btn btn-danger">SignUp</a>
+            </nav>
+        </center>
+    </header>
+
+
+    @*End Header *@
+
+
+    @*End Header *@
+
+    <div>
+        @RenderBody()
+    </div>
+    @*   start footer *@
+    <footer>
+        <center>
+            <div class="mt-3">
+                <p>CopyRighs &Copy; Route @DateTime.Now.Year</p>
+            </div>
+        </center>
+    </footer>
+    @*  end footer  *@
+
+</body>
+</html>
